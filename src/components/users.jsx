@@ -39,9 +39,19 @@ const Users = () => {
         )
     }
 
+    const changePhrase = () => {
+        if (users.length < 5 && users.length > 1) {
+            return `${users.length} человек тусанут с тобой сегодня`
+        } else if (users.length === 0) {
+            return 'Никто не тусанет с тобой сегодня :('
+        } else {
+            return `${users.length} человек тусанет с тобой сегодня`
+        }
+    }
+
     return (
         <React.Fragment>
-            <h1 className="badge bg-primary m-2 fs-5">12 человек тусанет с тобой сегодня</h1>
+            <h1 className={`badge bg-${users.length > 0 ? "primary" : "danger"} m-2 fs-5`}>{changePhrase()}</h1>
             <table className="table">
                 <thead>
                     <tr>
