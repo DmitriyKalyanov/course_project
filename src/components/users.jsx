@@ -3,8 +3,13 @@ import api from '../api'
 
 const Users = () => {
     const [users, setUsers] = useState(api.users.fetchAll())
-    const handleDelete = (usersId) => {
 
+    const handleDelete = (userId) => {
+       const usersArray = users.filter((user) => {
+          return user._id !== userId
+        })
+
+        setUsers(usersArray)
     }
 
     const renderPhrase = () => {
@@ -19,6 +24,7 @@ const Users = () => {
                     <button     
                         type="button"
                         className="btn btn-danger btn-sm"
+                        onClick={() => handleDelete(user._id)}
                     >
                         Удалить
                     </button>
