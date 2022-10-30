@@ -3,6 +3,7 @@ import { paginate } from '../utils/paginate';
 import User from './user';
 import Paginations from './paginations';
 import PropTypes from 'prop-types';
+import GroupList from './groupList';
 
 const Users = ({ users, onDelete, onToggleBookMark }) => {
     // console.log(users);
@@ -18,6 +19,7 @@ const Users = ({ users, onDelete, onToggleBookMark }) => {
     // console.log("userCrop", userCrop);
     return (
         <>
+            <GroupList items={items} />
             {count > 0 && (
                 <table className="table">
                     <thead>
