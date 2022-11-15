@@ -18,6 +18,7 @@ const Users = () => {
     const pageSize = 8;
 
     const [users, setUsers] = useState([]);
+    console.log(users);
 
     useEffect(() => {
         api.users.fetchAll().then((data) => setUsers(data));
@@ -51,7 +52,6 @@ const Users = () => {
         setCurrentPage(pageIndex);
     };
     const handleSort = (item) => {
-        console.log(item);
         setSortBy(item);
     };
 
@@ -115,9 +115,9 @@ const Users = () => {
     return 'loading...';
 };
 Users.propTypes = {
-    users: PropTypes.array.isRequired,
-    onDelete: PropTypes.func.isRequired,
-    onToggleBookMark: PropTypes.func.isRequired
+    users: PropTypes.array,
+    onDelete: PropTypes.func,
+    onToggleBookMark: PropTypes.func
 };
 
 export default Users;
